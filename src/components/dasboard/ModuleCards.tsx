@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from '@tanstack/react-router'
 import {
   Package,
   Factory,
@@ -7,68 +7,68 @@ import {
   Calculator,
   Users,
   ArrowRight,
-} from "lucide-react";
+} from 'lucide-react'
 
 const modules = [
   {
-    name: "Procurement",
-    description: "Manage suppliers and raw materials",
-    href: "/procurement",
+    name: 'Procurement',
+    description: 'Manage suppliers and raw materials',
+    href: '/procurement',
     icon: Package,
-    stats: "23 pending orders",
-    color: "bg-chart-1/10 text-chart-1",
+    stats: '23 pending orders',
+    color: 'bg-chart-1/10 text-chart-1',
   },
   {
-    name: "Production",
-    description: "Track batches and output",
-    href: "/production",
+    name: 'Production',
+    description: 'Track batches and output',
+    href: '/production',
     icon: Factory,
-    stats: "5 active batches",
-    color: "bg-chart-2/10 text-chart-2",
+    stats: '5 active batches',
+    color: 'bg-chart-2/10 text-chart-2',
   },
   {
-    name: "Distribution",
-    description: "Manage deliveries and logistics",
-    href: "/distribution",
+    name: 'Distribution',
+    description: 'Manage deliveries and logistics',
+    href: '/distribution',
     icon: Truck,
-    stats: "12 in transit",
-    color: "bg-chart-3/10 text-chart-3",
+    stats: '12 in transit',
+    color: 'bg-chart-3/10 text-chart-3',
   },
   {
-    name: "Invoicing",
-    description: "Generate and track invoices",
-    href: "/invoicing",
+    name: 'Invoicing',
+    description: 'Generate and track invoices',
+    href: '/invoicing',
     icon: FileText,
-    stats: "8 pending payments",
-    color: "bg-chart-4/10 text-chart-4",
+    stats: '8 pending payments',
+    color: 'bg-chart-4/10 text-chart-4',
   },
   {
-    name: "Accounting",
-    description: "Track costs and expenses",
-    href: "/accounting",
+    name: 'Accounting',
+    description: 'Track costs and expenses',
+    href: '/accounting',
     icon: Calculator,
-    stats: "Updated today",
-    color: "bg-primary/10 text-primary",
+    stats: 'Updated today',
+    color: 'bg-primary/10 text-primary',
   },
   {
-    name: "HR & Payroll",
-    description: "Manage workforce costs",
-    href: "/hr",
+    name: 'HR & Payroll',
+    description: 'Manage workforce costs',
+    href: '/hr',
     icon: Users,
-    stats: "45 employees",
-    color: "bg-chart-5/10 text-chart-5",
+    stats: '45 employees',
+    color: 'bg-chart-5/10 text-chart-5',
   },
-];
+]
 
 const ModuleCards = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {modules.map((module, index) => (
         <div
           key={module.name}
-          onClick={() => navigate(module.href)}
+          onClick={() => navigate({ to: module.href })}
           className="module-card group animate-fade-in"
           style={{ animationDelay: `${index * 50}ms` }}
         >
@@ -92,7 +92,7 @@ const ModuleCards = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default ModuleCards;
+export default ModuleCards
