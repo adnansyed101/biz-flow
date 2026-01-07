@@ -12,18 +12,6 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 import appCss from '../styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
-import MainLayout from '@/providers/main-layout'
-
-import {
-  TrendingUp,
-  Package,
-  Truck,
-  LayoutDashboard,
-  Factory,
-  FileText,
-  Calculator,
-  Users,
-} from 'lucide-react'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -55,22 +43,6 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   notFoundComponent: NotFound,
 })
 
-const links = [
-  {
-    label: 'Essential Linnks',
-    items: [
-      { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboard },
-      { title: 'Procurement', url: '/procurement', icon: Package },
-      { title: 'Production', url: '/production', icon: Factory },
-      { title: 'Distribution', url: '/distribution', icon: Truck },
-      { title: 'Invoicing', url: '/invoicing', icon: FileText },
-      { title: 'Accounting', url: '/accounting', icon: Calculator },
-      { title: 'HR & Payroll', url: '/hr', icon: Users },
-      { title: 'Profit & Loss', url: '/profit-loss', icon: TrendingUp },
-    ],
-  },
-]
-
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -78,7 +50,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <MainLayout links={links}>{children}</MainLayout>
+        {children}
         <TanStackDevtools
           config={{
             position: 'bottom-right',
