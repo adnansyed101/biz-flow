@@ -25,14 +25,14 @@ function App() {
   ]
 
   const navigate = useNavigate()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('admin@gmail.com')
+  const [password, setPassword] = useState('123456')
   const [role, setRole] = useState('')
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    navigate({ to: '/dashboard' })
+    navigate({ to: '/main/dashboard' })
   }
 
   return (
