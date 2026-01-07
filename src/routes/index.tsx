@@ -1,118 +1,217 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useState } from 'react'
+import { useNavigate } from '@tanstack/react-router'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import {
-  Zap,
-  Server,
-  Route as RouteIcon,
-  Shield,
-  Waves,
-  Sparkles,
-} from 'lucide-react'
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { Building2, Lock, Mail, Users } from 'lucide-react'
 
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
-  const features = [
-    {
-      icon: <Zap className="w-12 h-12 text-cyan-400" />,
-      title: 'Powerful Server Functions',
-      description:
-        'Write server-side code that seamlessly integrates with your client components. Type-safe, secure, and simple.',
-    },
-    {
-      icon: <Server className="w-12 h-12 text-cyan-400" />,
-      title: 'Flexible Server Side Rendering',
-      description:
-        'Full-document SSR, streaming, and progressive enhancement out of the box. Control exactly what renders where.',
-    },
-    {
-      icon: <RouteIcon className="w-12 h-12 text-cyan-400" />,
-      title: 'API Routes',
-      description:
-        'Build type-safe API endpoints alongside your application. No separate backend needed.',
-    },
-    {
-      icon: <Shield className="w-12 h-12 text-cyan-400" />,
-      title: 'Strongly Typed Everything',
-      description:
-        'End-to-end type safety from server to client. Catch errors before they reach production.',
-    },
-    {
-      icon: <Waves className="w-12 h-12 text-cyan-400" />,
-      title: 'Full Streaming Support',
-      description:
-        'Stream data from server to client progressively. Perfect for AI applications and real-time updates.',
-    },
-    {
-      icon: <Sparkles className="w-12 h-12 text-cyan-400" />,
-      title: 'Next Generation Ready',
-      description:
-        'Built from the ground up for modern web applications. Deploy anywhere JavaScript runs.',
-    },
+  const roles = [
+    { value: 'super_admin', label: 'Super Admin' },
+    { value: 'procurement', label: 'Procurement Team' },
+    { value: 'production', label: 'Production Team' },
+    { value: 'distribution', label: 'Distribution & Delivery' },
+    { value: 'accounts', label: 'Accounts / Finance' },
   ]
 
+  const navigate = useNavigate()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [role, setRole] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+
+    // Simulate login - in production this would be real auth
+    setTimeout(() => {
+      localStorage.setItem('userRole', role)
+      localStorage.setItem('userEmail', email)
+      setIsLoading(false)
+      navigate({ to: '/dashboard' })
+    }, 1000)
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-      <section className="relative py-20 px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10"></div>
-        <div className="relative max-w-5xl mx-auto">
-          <div className="flex items-center justify-center gap-6 mb-6">
-            <img
-              src="/tanstack-circle-logo.png"
-              alt="TanStack Logo"
-              className="w-24 h-24 md:w-32 md:h-32"
-            />
-            <h1 className="text-6xl md:text-7xl font-black text-white [letter-spacing:-0.08em]">
-              <span className="text-gray-300">TANSTACK</span>{' '}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                START
-              </span>
-            </h1>
+    <div className="min-h-screen flex">
+      {/* Left Panel - Branding */}
+      <div className="hidden lg:flex lg:w-1/2 bg-sidebar p-12 flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+              <Building2 className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <span className="text-xl font-semibold text-sidebar-foreground">
+              BusinessCore
+            </span>
           </div>
-          <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
-            The framework for next generation AI applications
+        </div>
+
+        <div className="space-y-6">
+          <h1 className="text-4xl font-bold text-sidebar-foreground leading-tight">
+            Centralized Business
+            <br />
+            Management Platform
+          </h1>
+          <p className="text-sidebar-muted text-lg max-w-md">
+            Manage your entire operational cycle from procurement to delivery,
+            with complete visibility and financial tracking.
           </p>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
-            Full-stack framework powered by TanStack Router for React and Solid.
-            Build modern applications with server functions, streaming, and type
-            safety.
-          </p>
-          <div className="flex flex-col items-center gap-4">
-            <a
-              href="https://tanstack.com/start"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-cyan-500/50"
-            >
-              Documentation
-            </a>
-            <p className="text-gray-400 text-sm mt-2">
-              Begin your TanStack Start journey by editing{' '}
-              <code className="px-2 py-1 bg-slate-700 rounded text-cyan-400">
-                /src/routes/index.tsx
-              </code>
+
+          <div className="grid grid-cols-2 gap-4 pt-6">
+            {[
+              { label: 'Procurement', icon: '📦' },
+              { label: 'Production', icon: '🏭' },
+              { label: 'Distribution', icon: '🚚' },
+              { label: 'Accounting', icon: '📊' },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="flex items-center gap-3 px-4 py-3 rounded-lg bg-sidebar-accent"
+              >
+                <span className="text-2xl">{item.icon}</span>
+                <span className="text-sidebar-foreground font-medium">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p className="text-sidebar-muted text-sm">
+          © 2024 BusinessCore. All rights reserved.
+        </p>
+      </div>
+
+      {/* Right Panel - Login Form */}
+      <div className="flex-1 flex items-center justify-center p-8 bg-background">
+        <div className="w-full max-w-md space-y-8 animate-fade-in">
+          {/* Mobile Logo */}
+          <div className="lg:hidden flex items-center justify-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+              <Building2 className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <span className="text-xl font-semibold text-foreground">
+              BusinessCore
+            </span>
+          </div>
+
+          <div className="text-center lg:text-left">
+            <h2 className="text-2xl font-bold text-foreground">Welcome back</h2>
+            <p className="text-muted-foreground mt-2">
+              Sign in to access your dashboard
             </p>
           </div>
-        </div>
-      </section>
 
-      <section className="py-16 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10"
-            >
-              <div className="mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                {feature.description}
-              </p>
+          <form onSubmit={handleLogin} className="space-y-6">
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="pl-10 h-11"
+                  required
+                />
+              </div>
             </div>
-          ))}
+
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="pl-10 h-11"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="role">Select Role</Label>
+              <div className="relative">
+                <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground z-10" />
+                <Select value={role} onValueChange={setRole} required>
+                  <SelectTrigger className="pl-10 h-11 w-full">
+                    <SelectValue placeholder="Select your role" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {roles.map((r) => (
+                      <SelectItem key={r.value} value={r.value}>
+                        {r.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  className="w-4 h-4 rounded border-border text-primary focus:ring-primary"
+                />
+                <span className="text-sm text-muted-foreground">
+                  Remember me
+                </span>
+              </label>
+              <a
+                href="#"
+                className="text-sm text-primary hover:text-primary/80 transition-colors"
+              >
+                Forgot password?
+              </a>
+            </div>
+
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full"
+              disabled={isLoading || !email || !password || !role}
+            >
+              {isLoading ? (
+                <span className="flex items-center gap-2">
+                  <span className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                  Signing in...
+                </span>
+              ) : (
+                'Sign in'
+              )}
+            </Button>
+          </form>
+
+          <p className="text-center text-sm text-muted-foreground">
+            Need help?{' '}
+            <a
+              href="#"
+              className="text-primary hover:text-primary/80 transition-colors"
+            >
+              Contact support
+            </a>
+          </p>
         </div>
-      </section>
+      </div>
     </div>
   )
 }
