@@ -18,7 +18,7 @@ import {
   Tooltip,
 } from 'recharts'
 
-export const Route = createFileRoute('/accounting')({
+export const Route = createFileRoute('/main/accounting')({
   component: AccountingPage,
 })
 

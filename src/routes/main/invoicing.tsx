@@ -53,7 +53,7 @@ const invoices = [
   },
 ]
 
-export const Route = createFileRoute('/invoicing')({
+export const Route = createFileRoute('/main/invoicing')({
   component: InvoicingPage,
 })
 

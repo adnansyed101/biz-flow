@@ -12,7 +12,7 @@ import {
   DollarSign,
 } from 'lucide-react'
 
-export const Route = createFileRoute('/hr')({
+export const Route = createFileRoute('/main/hr')({
   component: HRPage,
 })
 

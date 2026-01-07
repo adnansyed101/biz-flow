@@ -14,7 +14,7 @@ import {
   AlertCircle,
 } from 'lucide-react'
 
-export const Route = createFileRoute('/procurement')({
+export const Route = createFileRoute('/main/procurement')({
   component: ProcurementPage,
 })
 

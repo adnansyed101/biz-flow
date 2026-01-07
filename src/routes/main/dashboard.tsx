@@ -13,7 +13,7 @@ import RecentActivity from '@/components/dasboard/RecentActivity'
 import ModuleCards from '@/components/dasboard/ModuleCards'
 import RevenueChart from '@/components/dasboard/RevenueChart'
 
-export const Route = createFileRoute('/dashboard')({
+export const Route = createFileRoute('/main/dashboard')({
   component: DashboardPage,
 })
 

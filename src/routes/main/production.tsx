@@ -13,7 +13,7 @@ import {
   Package,
 } from 'lucide-react'
 
-export const Route = createFileRoute('/production')({
+export const Route = createFileRoute('/main/production')({
   component: ProductionPage,
 })
 

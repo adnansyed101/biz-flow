@@ -9,202 +9,146 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ProfitLossRouteImport } from './routes/profit-loss'
-import { Route as ProductionRouteImport } from './routes/production'
-import { Route as ProcurementRouteImport } from './routes/procurement'
-import { Route as InvoicingRouteImport } from './routes/invoicing'
-import { Route as HrRouteImport } from './routes/hr'
-import { Route as DistributionRouteImport } from './routes/distribution'
-import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as AccountingRouteImport } from './routes/accounting'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MainProfitLossRouteImport } from './routes/main/profit-loss'
+import { Route as MainProductionRouteImport } from './routes/main/production'
+import { Route as MainProcurementRouteImport } from './routes/main/procurement'
+import { Route as MainInvoicingRouteImport } from './routes/main/invoicing'
+import { Route as MainHrRouteImport } from './routes/main/hr'
+import { Route as MainDistributionRouteImport } from './routes/main/distribution'
+import { Route as MainDashboardRouteImport } from './routes/main/dashboard'
+import { Route as MainAccountingRouteImport } from './routes/main/accounting'
 
-const ProfitLossRoute = ProfitLossRouteImport.update({
-  id: '/profit-loss',
-  path: '/profit-loss',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductionRoute = ProductionRouteImport.update({
-  id: '/production',
-  path: '/production',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProcurementRoute = ProcurementRouteImport.update({
-  id: '/procurement',
-  path: '/procurement',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InvoicingRoute = InvoicingRouteImport.update({
-  id: '/invoicing',
-  path: '/invoicing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HrRoute = HrRouteImport.update({
-  id: '/hr',
-  path: '/hr',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DistributionRoute = DistributionRouteImport.update({
-  id: '/distribution',
-  path: '/distribution',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AccountingRoute = AccountingRouteImport.update({
-  id: '/accounting',
-  path: '/accounting',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MainProfitLossRoute = MainProfitLossRouteImport.update({
+  id: '/main/profit-loss',
+  path: '/main/profit-loss',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MainProductionRoute = MainProductionRouteImport.update({
+  id: '/main/production',
+  path: '/main/production',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MainProcurementRoute = MainProcurementRouteImport.update({
+  id: '/main/procurement',
+  path: '/main/procurement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MainInvoicingRoute = MainInvoicingRouteImport.update({
+  id: '/main/invoicing',
+  path: '/main/invoicing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MainHrRoute = MainHrRouteImport.update({
+  id: '/main/hr',
+  path: '/main/hr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MainDistributionRoute = MainDistributionRouteImport.update({
+  id: '/main/distribution',
+  path: '/main/distribution',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MainDashboardRoute = MainDashboardRouteImport.update({
+  id: '/main/dashboard',
+  path: '/main/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MainAccountingRoute = MainAccountingRouteImport.update({
+  id: '/main/accounting',
+  path: '/main/accounting',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/accounting': typeof AccountingRoute
-  '/dashboard': typeof DashboardRoute
-  '/distribution': typeof DistributionRoute
-  '/hr': typeof HrRoute
-  '/invoicing': typeof InvoicingRoute
-  '/procurement': typeof ProcurementRoute
-  '/production': typeof ProductionRoute
-  '/profit-loss': typeof ProfitLossRoute
+  '/main/accounting': typeof MainAccountingRoute
+  '/main/dashboard': typeof MainDashboardRoute
+  '/main/distribution': typeof MainDistributionRoute
+  '/main/hr': typeof MainHrRoute
+  '/main/invoicing': typeof MainInvoicingRoute
+  '/main/procurement': typeof MainProcurementRoute
+  '/main/production': typeof MainProductionRoute
+  '/main/profit-loss': typeof MainProfitLossRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/accounting': typeof AccountingRoute
-  '/dashboard': typeof DashboardRoute
-  '/distribution': typeof DistributionRoute
-  '/hr': typeof HrRoute
-  '/invoicing': typeof InvoicingRoute
-  '/procurement': typeof ProcurementRoute
-  '/production': typeof ProductionRoute
-  '/profit-loss': typeof ProfitLossRoute
+  '/main/accounting': typeof MainAccountingRoute
+  '/main/dashboard': typeof MainDashboardRoute
+  '/main/distribution': typeof MainDistributionRoute
+  '/main/hr': typeof MainHrRoute
+  '/main/invoicing': typeof MainInvoicingRoute
+  '/main/procurement': typeof MainProcurementRoute
+  '/main/production': typeof MainProductionRoute
+  '/main/profit-loss': typeof MainProfitLossRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/accounting': typeof AccountingRoute
-  '/dashboard': typeof DashboardRoute
-  '/distribution': typeof DistributionRoute
-  '/hr': typeof HrRoute
-  '/invoicing': typeof InvoicingRoute
-  '/procurement': typeof ProcurementRoute
-  '/production': typeof ProductionRoute
-  '/profit-loss': typeof ProfitLossRoute
+  '/main/accounting': typeof MainAccountingRoute
+  '/main/dashboard': typeof MainDashboardRoute
+  '/main/distribution': typeof MainDistributionRoute
+  '/main/hr': typeof MainHrRoute
+  '/main/invoicing': typeof MainInvoicingRoute
+  '/main/procurement': typeof MainProcurementRoute
+  '/main/production': typeof MainProductionRoute
+  '/main/profit-loss': typeof MainProfitLossRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/accounting'
-    | '/dashboard'
-    | '/distribution'
-    | '/hr'
-    | '/invoicing'
-    | '/procurement'
-    | '/production'
-    | '/profit-loss'
+    | '/main/accounting'
+    | '/main/dashboard'
+    | '/main/distribution'
+    | '/main/hr'
+    | '/main/invoicing'
+    | '/main/procurement'
+    | '/main/production'
+    | '/main/profit-loss'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/accounting'
-    | '/dashboard'
-    | '/distribution'
-    | '/hr'
-    | '/invoicing'
-    | '/procurement'
-    | '/production'
-    | '/profit-loss'
+    | '/main/accounting'
+    | '/main/dashboard'
+    | '/main/distribution'
+    | '/main/hr'
+    | '/main/invoicing'
+    | '/main/procurement'
+    | '/main/production'
+    | '/main/profit-loss'
   id:
     | '__root__'
     | '/'
-    | '/accounting'
-    | '/dashboard'
-    | '/distribution'
-    | '/hr'
-    | '/invoicing'
-    | '/procurement'
-    | '/production'
-    | '/profit-loss'
+    | '/main/accounting'
+    | '/main/dashboard'
+    | '/main/distribution'
+    | '/main/hr'
+    | '/main/invoicing'
+    | '/main/procurement'
+    | '/main/production'
+    | '/main/profit-loss'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AccountingRoute: typeof AccountingRoute
-  DashboardRoute: typeof DashboardRoute
-  DistributionRoute: typeof DistributionRoute
-  HrRoute: typeof HrRoute
-  InvoicingRoute: typeof InvoicingRoute
-  ProcurementRoute: typeof ProcurementRoute
-  ProductionRoute: typeof ProductionRoute
-  ProfitLossRoute: typeof ProfitLossRoute
+  MainAccountingRoute: typeof MainAccountingRoute
+  MainDashboardRoute: typeof MainDashboardRoute
+  MainDistributionRoute: typeof MainDistributionRoute
+  MainHrRoute: typeof MainHrRoute
+  MainInvoicingRoute: typeof MainInvoicingRoute
+  MainProcurementRoute: typeof MainProcurementRoute
+  MainProductionRoute: typeof MainProductionRoute
+  MainProfitLossRoute: typeof MainProfitLossRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/profit-loss': {
-      id: '/profit-loss'
-      path: '/profit-loss'
-      fullPath: '/profit-loss'
-      preLoaderRoute: typeof ProfitLossRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/production': {
-      id: '/production'
-      path: '/production'
-      fullPath: '/production'
-      preLoaderRoute: typeof ProductionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/procurement': {
-      id: '/procurement'
-      path: '/procurement'
-      fullPath: '/procurement'
-      preLoaderRoute: typeof ProcurementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/invoicing': {
-      id: '/invoicing'
-      path: '/invoicing'
-      fullPath: '/invoicing'
-      preLoaderRoute: typeof InvoicingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hr': {
-      id: '/hr'
-      path: '/hr'
-      fullPath: '/hr'
-      preLoaderRoute: typeof HrRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/distribution': {
-      id: '/distribution'
-      path: '/distribution'
-      fullPath: '/distribution'
-      preLoaderRoute: typeof DistributionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/accounting': {
-      id: '/accounting'
-      path: '/accounting'
-      fullPath: '/accounting'
-      preLoaderRoute: typeof AccountingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -212,19 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/main/profit-loss': {
+      id: '/main/profit-loss'
+      path: '/main/profit-loss'
+      fullPath: '/main/profit-loss'
+      preLoaderRoute: typeof MainProfitLossRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/main/production': {
+      id: '/main/production'
+      path: '/main/production'
+      fullPath: '/main/production'
+      preLoaderRoute: typeof MainProductionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/main/procurement': {
+      id: '/main/procurement'
+      path: '/main/procurement'
+      fullPath: '/main/procurement'
+      preLoaderRoute: typeof MainProcurementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/main/invoicing': {
+      id: '/main/invoicing'
+      path: '/main/invoicing'
+      fullPath: '/main/invoicing'
+      preLoaderRoute: typeof MainInvoicingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/main/hr': {
+      id: '/main/hr'
+      path: '/main/hr'
+      fullPath: '/main/hr'
+      preLoaderRoute: typeof MainHrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/main/distribution': {
+      id: '/main/distribution'
+      path: '/main/distribution'
+      fullPath: '/main/distribution'
+      preLoaderRoute: typeof MainDistributionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/main/dashboard': {
+      id: '/main/dashboard'
+      path: '/main/dashboard'
+      fullPath: '/main/dashboard'
+      preLoaderRoute: typeof MainDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/main/accounting': {
+      id: '/main/accounting'
+      path: '/main/accounting'
+      fullPath: '/main/accounting'
+      preLoaderRoute: typeof MainAccountingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AccountingRoute: AccountingRoute,
-  DashboardRoute: DashboardRoute,
-  DistributionRoute: DistributionRoute,
-  HrRoute: HrRoute,
-  InvoicingRoute: InvoicingRoute,
-  ProcurementRoute: ProcurementRoute,
-  ProductionRoute: ProductionRoute,
-  ProfitLossRoute: ProfitLossRoute,
+  MainAccountingRoute: MainAccountingRoute,
+  MainDashboardRoute: MainDashboardRoute,
+  MainDistributionRoute: MainDistributionRoute,
+  MainHrRoute: MainHrRoute,
+  MainInvoicingRoute: MainInvoicingRoute,
+  MainProcurementRoute: MainProcurementRoute,
+  MainProductionRoute: MainProductionRoute,
+  MainProfitLossRoute: MainProfitLossRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

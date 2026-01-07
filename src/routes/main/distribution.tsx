@@ -14,7 +14,7 @@ import {
   User,
 } from 'lucide-react'
 
-export const Route = createFileRoute('/distribution')({
+export const Route = createFileRoute('/main/distribution')({
   component: DistributionPage,
 })
 
@@ -120,7 +120,6 @@ function DistributionPage() {
           New Order
         </Button>
       </div>
-
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="stat-card">
@@ -168,7 +167,6 @@ function DistributionPage() {
           </div>
         </div>
       </div>
-
       {/* Filters */}
       <div className="flex items-center gap-4">
         <div className="relative flex-1 max-w-sm">
@@ -180,7 +178,6 @@ function DistributionPage() {
           Filters
         </Button>
       </div>
-
       {/* Deliveries List */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="space-y-4">
