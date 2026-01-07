@@ -28,19 +28,11 @@ function App() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [role, setRole] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsLoading(true)
 
-    // Simulate login - in production this would be real auth
-    setTimeout(() => {
-      localStorage.setItem('userRole', role)
-      localStorage.setItem('userEmail', email)
-      setIsLoading(false)
-      navigate({ to: '/dashboard' })
-    }, 1000)
+    navigate({ to: '/dashboard' })
   }
 
   return (
@@ -184,20 +176,8 @@ function App() {
               </a>
             </div>
 
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full"
-              disabled={isLoading || !email || !password || !role}
-            >
-              {isLoading ? (
-                <span className="flex items-center gap-2">
-                  <span className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                  Signing in...
-                </span>
-              ) : (
-                'Sign in'
-              )}
+            <Button type="submit" size="lg" className="w-full">
+              Sign in
             </Button>
           </form>
 
