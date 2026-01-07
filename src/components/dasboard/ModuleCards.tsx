@@ -13,7 +13,7 @@ const modules = [
   {
     name: 'Procurement',
     description: 'Manage suppliers and raw materials',
-    href: '/procurement',
+    href: '/main/procurement',
     icon: Package,
     stats: '23 pending orders',
     color: 'bg-chart-1/10 text-chart-1',
@@ -21,7 +21,7 @@ const modules = [
   {
     name: 'Production',
     description: 'Track batches and output',
-    href: '/production',
+    href: '/main/production',
     icon: Factory,
     stats: '5 active batches',
     color: 'bg-chart-2/10 text-chart-2',
@@ -29,7 +29,7 @@ const modules = [
   {
     name: 'Distribution',
     description: 'Manage deliveries and logistics',
-    href: '/distribution',
+    href: '/main/distribution',
     icon: Truck,
     stats: '12 in transit',
     color: 'bg-chart-3/10 text-chart-3',
@@ -37,7 +37,7 @@ const modules = [
   {
     name: 'Invoicing',
     description: 'Generate and track invoices',
-    href: '/invoicing',
+    href: '/main/invoicing',
     icon: FileText,
     stats: '8 pending payments',
     color: 'bg-chart-4/10 text-chart-4',
@@ -45,7 +45,7 @@ const modules = [
   {
     name: 'Accounting',
     description: 'Track costs and expenses',
-    href: '/accounting',
+    href: '/main/accounting',
     icon: Calculator,
     stats: 'Updated today',
     color: 'bg-primary/10 text-primary',
@@ -53,7 +53,7 @@ const modules = [
   {
     name: 'HR & Payroll',
     description: 'Manage workforce costs',
-    href: '/hr',
+    href: '/main/hr',
     icon: Users,
     stats: '45 employees',
     color: 'bg-chart-5/10 text-chart-5',
