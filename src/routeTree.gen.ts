@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MainRouteRouteImport } from './routes/main/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MainSettingsRouteImport } from './routes/main/settings'
 import { Route as MainProfitLossRouteImport } from './routes/main/profit-loss'
 import { Route as MainProductionRouteImport } from './routes/main/production'
 import { Route as MainProcurementRouteImport } from './routes/main/procurement'
@@ -29,6 +30,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const MainSettingsRoute = MainSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => MainRouteRoute,
 } as any)
 const MainProfitLossRoute = MainProfitLossRouteImport.update({
   id: '/profit-loss',
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/main/procurement': typeof MainProcurementRoute
   '/main/production': typeof MainProductionRoute
   '/main/profit-loss': typeof MainProfitLossRoute
+  '/main/settings': typeof MainSettingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/main/procurement': typeof MainProcurementRoute
   '/main/production': typeof MainProductionRoute
   '/main/profit-loss': typeof MainProfitLossRoute
+  '/main/settings': typeof MainSettingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/main/procurement': typeof MainProcurementRoute
   '/main/production': typeof MainProductionRoute
   '/main/profit-loss': typeof MainProfitLossRoute
+  '/main/settings': typeof MainSettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/main/procurement'
     | '/main/production'
     | '/main/profit-loss'
+    | '/main/settings'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/main/procurement'
     | '/main/production'
     | '/main/profit-loss'
+    | '/main/settings'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/main/procurement'
     | '/main/production'
     | '/main/profit-loss'
+    | '/main/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -167,6 +179,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/main/settings': {
+      id: '/main/settings'
+      path: '/settings'
+      fullPath: '/main/settings'
+      preLoaderRoute: typeof MainSettingsRouteImport
+      parentRoute: typeof MainRouteRoute
     }
     '/main/profit-loss': {
       id: '/main/profit-loss'
@@ -236,6 +255,7 @@ interface MainRouteRouteChildren {
   MainProcurementRoute: typeof MainProcurementRoute
   MainProductionRoute: typeof MainProductionRoute
   MainProfitLossRoute: typeof MainProfitLossRoute
+  MainSettingsRoute: typeof MainSettingsRoute
 }
 
 const MainRouteRouteChildren: MainRouteRouteChildren = {
@@ -247,6 +267,7 @@ const MainRouteRouteChildren: MainRouteRouteChildren = {
   MainProcurementRoute: MainProcurementRoute,
   MainProductionRoute: MainProductionRoute,
   MainProfitLossRoute: MainProfitLossRoute,
+  MainSettingsRoute: MainSettingsRoute,
 }
 
 const MainRouteRouteWithChildren = MainRouteRoute._addFileChildren(
