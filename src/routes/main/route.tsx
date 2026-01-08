@@ -10,6 +10,7 @@ import {
   FileText,
   Calculator,
   Users,
+  Settings,
 } from 'lucide-react'
 
 export const Route = createFileRoute('/main')({
@@ -28,6 +29,7 @@ const links = [
       { title: 'Accounting', url: '/main/accounting', icon: Calculator },
       { title: 'HR & Payroll', url: '/main/hr', icon: Users },
       { title: 'Profit & Loss', url: '/main/profit-loss', icon: TrendingUp },
+      { title: 'Settings', url: '/main/settings', icon: Settings },
     ],
   },
 ]
